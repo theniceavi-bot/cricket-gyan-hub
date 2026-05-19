@@ -1,40 +1,532 @@
 <!DOCTYPE html>
-<html>
+<html lang="hi">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cricket Gyan Hub</title>
+
   <style>
-    body{
-      font-family: Arial;
-      background:black;
-      color:white;
-      text-align:center;
-      padding:40px;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    h1{
+    body{
+      font-family:Arial, sans-serif;
+      background:#000;
+      color:#fff;
+      line-height:1.6;
+    }
+
+    a{
+      text-decoration:none;
+      color:white;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    /* Breaking News */
+    .breaking-news{
+      background:red;
+      padding:10px;
+      overflow:hidden;
+      white-space:nowrap;
+      font-weight:bold;
+    }
+
+    .marquee{
+      display:inline-block;
+      animation:marquee 15s linear infinite;
+    }
+
+    @keyframes marquee{
+      0%{
+        transform:translateX(100%);
+      }
+
+      100%{
+        transform:translateX(-100%);
+      }
+    }
+
+    /* Header */
+    header{
+      background:#111;
+      border-bottom:1px solid #333;
+      padding:20px;
+      position:sticky;
+      top:0;
+      z-index:100;
+    }
+
+    .header-container{
+      max-width:1200px;
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .logo h1{
+      color:red;
+      font-size:32px;
+    }
+
+    .logo p{
+      color:#aaa;
+      font-size:14px;
+    }
+
+    nav{
+      display:flex;
+      gap:20px;
+      margin-top:10px;
+    }
+
+    nav a:hover{
       color:red;
     }
 
-    .box{
-      background:#111;
-      padding:20px;
-      border-radius:10px;
-      margin-top:20px;
+    /* Hero */
+    .hero{
+      position:relative;
+      text-align:center;
     }
+
+    .hero img{
+      width:100%;
+      height:400px;
+      object-fit:cover;
+      opacity:0.4;
+    }
+
+    .hero-content{
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%, -50%);
+      width:90%;
+    }
+
+    .hero-content h2{
+      font-size:50px;
+      margin-bottom:20px;
+    }
+
+    .hero-content p{
+      font-size:18px;
+      color:#ddd;
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:20px;
+      background:red;
+      padding:12px 25px;
+      border-radius:10px;
+      color:white;
+      font-weight:bold;
+    }
+
+    .btn:hover{
+      background:#c40000;
+    }
+
+    /* Sections */
+    .container{
+      max-width:1200px;
+      margin:auto;
+      padding:60px 20px;
+    }
+
+    .section-title{
+      font-size:35px;
+      margin-bottom:30px;
+    }
+
+    /* Categories */
+    .categories{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:20px;
+    }
+
+    .category-card{
+      background:#111;
+      border:1px solid #333;
+      padding:30px;
+      border-radius:20px;
+      text-align:center;
+      transition:0.3s;
+    }
+
+    .category-card:hover{
+      border-color:red;
+    }
+
+    /* Articles */
+    .articles{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:25px;
+    }
+
+    .article-card{
+      background:#111;
+      border-radius:20px;
+      overflow:hidden;
+      transition:0.3s;
+    }
+
+    .article-card:hover{
+      transform:translateY(-5px);
+    }
+
+    .article-content{
+      padding:20px;
+    }
+
+    .badge{
+      background:red;
+      padding:5px 12px;
+      border-radius:20px;
+      font-size:12px;
+      display:inline-block;
+    }
+
+    .article-content h3{
+      margin:15px 0;
+      font-size:22px;
+    }
+
+    .article-content p{
+      color:#aaa;
+      font-size:14px;
+    }
+
+    /* Login */
+    .login-box{
+      max-width:450px;
+      margin:auto;
+      background:#111;
+      border:1px solid #333;
+      padding:40px;
+      border-radius:25px;
+    }
+
+    .login-box h2{
+      text-align:center;
+      margin-bottom:10px;
+    }
+
+    .login-box p{
+      text-align:center;
+      color:#aaa;
+      margin-bottom:25px;
+    }
+
+    .login-box input{
+      width:100%;
+      padding:14px;
+      margin-bottom:15px;
+      border:none;
+      border-radius:12px;
+      background:#222;
+      color:white;
+    }
+
+    .login-box button{
+      width:100%;
+      padding:14px;
+      border:none;
+      border-radius:12px;
+      margin-bottom:10px;
+      font-size:16px;
+      cursor:pointer;
+    }
+
+    .login-btn{
+      background:red;
+      color:white;
+    }
+
+    .google-btn{
+      background:white;
+      color:black;
+    }
+
+    /* YouTube */
+    .youtube-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:20px;
+    }
+
+    iframe{
+      width:100%;
+      height:300px;
+      border:none;
+      border-radius:20px;
+    }
+
+    /* Motivation */
+    .motivation{
+      background:linear-gradient(to right, red, darkred);
+      padding:60px 20px;
+      border-radius:30px;
+      text-align:center;
+    }
+
+    .motivation h2{
+      margin-bottom:20px;
+      font-size:35px;
+    }
+
+    .motivation p{
+      font-size:24px;
+      font-style:italic;
+    }
+
+    /* Footer */
+    footer{
+      background:#111;
+      text-align:center;
+      padding:30px;
+      margin-top:50px;
+      border-top:1px solid #333;
+    }
+
+    footer h3{
+      color:white;
+      margin-bottom:10px;
+    }
+
+    footer p{
+      color:#aaa;
+    }
+
+    /* Responsive */
+    @media(max-width:768px){
+
+      .hero-content h2{
+        font-size:32px;
+      }
+
+      nav{
+        width:100%;
+        justify-content:center;
+      }
+
+      .section-title{
+        font-size:28px;
+      }
+    }
+
   </style>
 </head>
 
 <body>
 
-<h1>🏏 Cricket Gyan Hub</h1>
+  <!-- Breaking News -->
+  <div class="breaking-news">
+    <div class="marquee">
+      🔥 Breaking News: IPL 2026 में शानदार प्रदर्शन | 📚 Exam Tips अपडेट | 💡 Daily Motivation Quotes
+    </div>
+  </div>
 
-<div class="box">
-  <h2>Welcome to Cricket  yihhhiophiohihuihuihuh Gyan Hub</h2>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
 
-  <p>
-    Cricket • Education • News • Motivation
-  </p>
-</div>
+      <div class="logo">
+        <h1>Cricket Gyan Hub</h1>
+        <p>Cricket • Education • News • Motivation</p>
+      </div>
+
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">Cricket</a>
+        <a href="#">Education</a>
+        <a href="#">News</a>
+        <a href="#">Motivation</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+
+    <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=1600&auto=format&fit=crop">
+
+    <div class="hero-content">
+      <h2>Welcome to Cricket Gyan Hub</h2>
+
+      <p>
+        हिंदी में Cricket Updates, Education Notes, Latest News और Daily Motivation.
+      </p>
+
+      <a href="#" class="btn">Explore Articles</a>
+    </div>
+
+  </section>
+
+  <!-- Login -->
+  <section class="container">
+
+    <div class="login-box">
+
+      <h2>Member Login</h2>
+
+      <p>Cricket Gyan Hub में login करें</p>
+
+      <input type="email" placeholder="Email Address">
+
+      <input type="password" placeholder="Password">
+
+      <button class="login-btn">Login</button>
+
+      <button class="google-btn">Continue with Google</button>
+
+    </div>
+
+  </section>
+
+  <!-- Categories -->
+  <section class="container">
+
+    <h2 class="section-title">Top Categories</h2>
+
+    <div class="categories">
+
+      <div class="category-card">🏏 Cricket</div>
+
+      <div class="category-card">📚 Education</div>
+
+      <div class="category-card">📰 News</div>
+
+      <div class="category-card">💡 Motivation</div>
+
+    </div>
+
+  </section>
+
+  <!-- Articles -->
+  <section class="container">
+
+    <h2 class="section-title">Latest Articles</h2>
+
+    <div class="articles">
+
+      <div class="article-card">
+
+        <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="article-content">
+
+          <span class="badge">Cricket</span>
+
+          <h3>IPL 2026: शानदार मुकाबले में टीम की जीत</h3>
+
+          <p>
+            पढ़ें पूरी जानकारी और अपडेट Cricket Gyan Hub पर।
+          </p>
+
+          <a href="#" class="btn">Read More</a>
+
+        </div>
+
+      </div>
+
+      <div class="article-card">
+
+        <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="article-content">
+
+          <span class="badge">Education</span>
+
+          <h3>Board Exam तैयारी के लिए Best Tips</h3>
+
+          <p>
+            Exam preparation और study notes पढ़ें।
+          </p>
+
+          <a href="#" class="btn">Read More</a>
+
+        </div>
+
+      </div>
+
+      <div class="article-card">
+
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="article-content">
+
+          <span class="badge">Motivation</span>
+
+          <h3>हर दिन मोटिवेट रहने के आसान तरीके</h3>
+
+          <p>
+            Daily motivation और success tips।
+          </p>
+
+          <a href="#" class="btn">Read More</a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- YouTube -->
+  <section class="container">
+
+    <h2 class="section-title">Latest YouTube Videos</h2>
+
+    <div class="youtube-grid">
+
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
+
+      <iframe src="https://www.youtube.com/embed/ysz5S6PUM-U"></iframe>
+
+    </div>
+
+  </section>
+
+  <!-- Motivation -->
+  <section class="container">
+
+    <div class="motivation">
+
+      <h2>Daily Motivation</h2>
+
+      <p>
+        “सफलता उन्हीं को मिलती है जो मेहनत करने से कभी नहीं डरते।”
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer>
+
+    <h3>Cricket Gyan Hub</h3>
+
+    <p>
+      © 2026 Cricket Gyan Hub • All Rights Reserved
+    </p>
+
+  </footer>
 
 </body>
 </html>
