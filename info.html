@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cricket Zone</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:Arial, sans-serif;
+      background:#0b0b0b;
+      color:white;
+    }
+
+    header{
+      background:#111;
+      padding:20px;
+      text-align:center;
+      border-bottom:2px solid red;
+    }
+
+    header h1{
+      color:red;
+      font-size:40px;
+    }
+
+    nav{
+      margin-top:10px;
+    }
+
+    nav a{
+      color:white;
+      margin:0 15px;
+      text-decoration:none;
+      font-weight:bold;
+    }
+
+    nav a:hover{
+      color:red;
+    }
+
+    .hero{
+      background:url('https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=1600&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+      height:450px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      position:relative;
+    }
+
+    .hero::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.6);
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:1;
+    }
+
+    .hero h2{
+      font-size:55px;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      font-size:20px;
+      color:#ddd;
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:20px;
+      background:red;
+      color:white;
+      padding:12px 25px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:bold;
+    }
+
+    .btn:hover{
+      background:darkred;
+    }
+
+    .container{
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+      padding:60px 0;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:38px;
+      margin-bottom:40px;
+      color:red;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:25px;
+    }
+
+    .card{
+      background:#151515;
+      border-radius:15px;
+      overflow:hidden;
+      transition:0.3s;
+      box-shadow:0 0 10px rgba(255,0,0,0.2);
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+    }
+
+    .card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+
+    .card-content{
+      padding:20px;
+    }
+
+    .card-content h3{
+      margin-bottom:15px;
+      color:red;
+    }
+
+    .card-content p{
+      color:#ccc;
+      margin-bottom:20px;
+    }
+
+    .live-score{
+      background:linear-gradient(to right, red, darkred);
+      padding:40px;
+      border-radius:20px;
+      text-align:center;
+      margin-top:50px;
+    }
+
+    .live-score h2{
+      font-size:40px;
+      margin-bottom:20px;
+    }
+
+    .score-box{
+      background:#111;
+      padding:20px;
+      border-radius:15px;
+      display:inline-block;
+      margin-top:20px;
+    }
+
+    .score-box p{
+      font-size:22px;
+      margin:10px 0;
+    }
+
+    footer{
+      background:#111;
+      text-align:center;
+      padding:25px;
+      border-top:2px solid red;
+      margin-top:50px;
+    }
+
+    footer p{
+      color:#aaa;
+    }
+
+    @media(max-width:768px){
+
+      .hero h2{
+        font-size:35px;
+      }
+
+      nav a{
+        display:block;
+        margin:10px 0;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+
+  <header>
+
+    <h1>🏏 Cricket Zone</h1>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Matches</a>
+      <a href="#">Teams</a>
+      <a href="#">Live Score</a>
+      <a href="#">News</a>
+      <a href="#">Contact</a>
+    </nav>
+
+  </header>
+
+  <!-- Hero Section -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <h2>Welcome to Cricket Zone</h2>
+
+      <p>
+        Latest Cricket News, Live Scores & Match Updates
+      </p>
+
+      <a href="#" class="btn">Explore More</a>
+
+    </div>
+
+  </section>
+
+  <!-- Latest News -->
+
+  <section class="container">
+
+    <h2 class="section-title">Latest Cricket News</h2>
+
+    <div class="cards">
+
+      <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="card-content">
+
+          <h3>India Wins Thrilling Match</h3>
+
+          <p>
+            India defeated Australia by 5 wickets in a thrilling T20 match.
+          </p>
+
+          <a href="#" class="btn">Read More</a>
+
+        </div>
+
+      </div>
+
+      <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1624880357913-a8539238245b?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="card-content">
+
+          <h3>IPL 2026 Schedule Released</h3>
+
+          <p>
+            Full IPL 2026 match schedule and team details announced.
+          </p>
+
+          <a href="#" class="btn">Read More</a>
+
+        </div>
+
+      </div>
+
+      <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1593341646782-e0b495cff86d?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="card-content">
+
+          <h3>Top Players to Watch</h3>
+
+          <p>
+            Here are the top cricket stars expected to shine this season.
+          </p>
+
+          <a href="#" class="btn">Read More</a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Live Score -->
+
+  <section class="container">
+
+    <div class="live-score">
+
+      <h2>🔥 Live Match Score</h2>
+
+      <div class="score-box">
+
+        <p><strong>India:</strong> 182/4</p>
+
+        <p><strong>Australia:</strong> 175/8</p>
+
+        <p>India won by 7 runs</p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+
+  <footer>
+
+    <p>
+      © 2026 Cricket Zone | All Rights Reserved
+    </p>
+
+  </footer>
+
+</body>
+</html>
